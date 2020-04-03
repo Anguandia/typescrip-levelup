@@ -1,12 +1,9 @@
-import * as express from "express";
-import StockController from '../controllers/stock.controller'
+import { Express } from "express";
+import { stockRoutes } from './stock.routes';
+import { userRoutes } from './user.routes';
+export const register = (app: Express) => {
 
-export const register = (app: express.Application) => {
-
-    app.get("/stock/:id", (StockController.findItemById));
-    app.put("/stock/:id", (StockController.updateItem));
-    app.delete("/stock/:id", (StockController.deleteItem));
-    app.get("/stock", StockController.allStock);
-    app.post("/stock", StockController.create);
+    stockRoutes(app);
+    userRoutes(app);
 
 };
